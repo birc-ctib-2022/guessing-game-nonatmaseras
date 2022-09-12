@@ -23,6 +23,7 @@ print("Let me know how good my guess is.\n")
 # Here, we implement the computer's strategy for guessing
 # the number you are thinking of. Don't lie to the
 # computer. It won't punish you, but it will frown upon it.
+'''
 for guess in range(1, 21):
     result = input_selection(
         "I'm guessing {}\nHow is my guess?".format(guess),
@@ -33,3 +34,32 @@ for guess in range(1, 21):
         break
 
     print("I must have been too low, right?", result)
+##strategy 2
+for guess in range(20, 1,-1):
+    result = input_selection(
+        "I'm guessing {}\nHow is my guess?".format(guess),
+        ["low", "hit", "high"]
+    )
+    if result == "hit":
+        print("Wuhuu!")
+        break
+
+    print("I must have been too high, right?", result)'''
+## strategy 3
+guess = (1+20)//2
+result = ""
+i = 0
+while result != "hit":    
+    result = input_selection(
+        "I'm guessing {}\nHow is my guess?".format(guess),
+        ["low", "hit", "high"]
+    )
+    if result == "low":
+        guess -= 1
+    elif result == "high":
+        guess +=1
+    elif result == "hit":
+        print("Wuhuu!")
+        break
+    
+    
